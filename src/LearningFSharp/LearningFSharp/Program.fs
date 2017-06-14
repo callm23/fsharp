@@ -1,12 +1,14 @@
 ﻿// Weitere Informationen zu F# unter "http://fsharp.org".
 // Weitere Hilfe finden Sie im Projekt "F#-Tutorial".
 
+open Call.Demo.Calculator // open a namespae
+open Call.Demo.Calculator.Adder // open a module (also possible)
+open Call.Demo.Calculator.Multiplier // open a module (also possible)
+
 [<EntryPoint>]
 let main argv = 
   let x = 10
   // funktionen sind auch variablen
-  let add a b = a + b
-  let square x = x * x // int -> int (int goes to int)
 
   // nested
   let add' x y =
