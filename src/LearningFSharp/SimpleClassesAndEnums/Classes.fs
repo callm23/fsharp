@@ -65,4 +65,11 @@ let truck = Red18Wheeler()
 truck.PassengerCount <- 1
 truck.PassengerCount <- 3
 
+// using up-casting operator
+let truckObject = truck :> obj
+let truckCar = truck :> Car
+
+// down-casting operator !try to case!
+let truckObjectBackToCar = truckObject :?> Car
+
 System.Console.ReadKey()
