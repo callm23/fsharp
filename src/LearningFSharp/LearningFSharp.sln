@@ -7,6 +7,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "LearningFSharp", "LearningF
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Calculator.Tests", "Calculator.Tests\Calculator.Tests.fsproj", "{FD815298-BB0D-40AB-8AC1-7266DB5ACFDC}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SimpleClassesAndEnums", "SimpleClassesAndEnums\SimpleClassesAndEnums.fsproj", "{124AB017-481C-4BAD-909D-811825705244}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FD815298-BB0D-40AB-8AC1-7266DB5ACFDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD815298-BB0D-40AB-8AC1-7266DB5ACFDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD815298-BB0D-40AB-8AC1-7266DB5ACFDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{124AB017-481C-4BAD-909D-811825705244}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{124AB017-481C-4BAD-909D-811825705244}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{124AB017-481C-4BAD-909D-811825705244}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{124AB017-481C-4BAD-909D-811825705244}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
