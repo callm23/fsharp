@@ -58,6 +58,7 @@
     <None Include="App.config" />
     <Content Include="packages.config" />
     <Compile Include="Calculator.fs" />
+    <Compile Include="Func.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
