@@ -60,6 +60,9 @@
     <Compile Include="Calculator.fs" />
     <Compile Include="Func.fs" />
     <Compile Include="Program.fs" />
+    <Compile Include="Tuples.fs" />
+    <Compile Include="Options.fs" />
+    <Compile Include="Lists.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

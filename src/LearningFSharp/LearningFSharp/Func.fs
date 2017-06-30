@@ -1,75 +1,104 @@
-﻿module Func
+﻿namespace MyFun
 
-// Functions are values
-let add x y = x + y
+open System
+open System.Threading
 
-// as lambda
-let add' = fun x y -> x + y //spoken: add tick
+module Func =
 
-//let checkThis item f = //without annotation
-let checkThis (item: 'c) (f: 'c -> bool) : unit = //item is a generic
-  if f item then
-    printfn "HIT"
-  else
-    printfn "MISS"
+  // Functions are values
+  let add x y = x + y
 
-checkThis 5 (fun x -> x > 3)
-checkThis "str" (fun x -> x.Length > 5)
+  // as lambda
+  let add' = fun x y -> x + y //spoken: add tick
 
-// partial application
-// passing an incomplete parameter list to a function call, resulting in a new funciton
-let add'' x = fun y -> x + y
-// int -> (int -> int) //int "goes to" int
+  //let checkThis item f = //without annotation
+  let checkThis (item: 'c) (f: 'c -> bool) : unit = //item is a generic
+    if f item then
+      printfn "HIT"
+    else
+      printfn "MISS"
 
-let add10'' = add'' 10
-printfn "%d" (add10'' 32)
+  checkThis 5 (fun x -> x > 3)
+  checkThis "str" (fun x -> x.Length > 5)
 
-let add10 = add 10
-printfn "%d" (add10 32)
+  // partial application
+  // passing an incomplete parameter list to a function call, resulting in a new funciton
+  let add'' x = fun y -> x + y
+  // int -> (int -> int) //int "goes to" int
 
+  let add10'' = add'' 10
+  printfn "%d" (add10'' 32)
 
-// Composition
-let mult x y = x * y
-let mult5 = mult 5
-
-let calcResult = mult5 (add10 17)
-let calcResult' = 17 |> add10 |> mult5
-let m = 2 |> mult
-
-let add10mult5 = add10 >> mult5 // >> composition operator
-
-let clacResult'' = add10mult5 17
+  let add10 = add 10
+  printfn "%d" (add10 32)
 
 
-// Precomputation
-open System.Collections.Generic
+  // Composition
+  let mult x y = x * y
+  let mult5 = mult 5
 
-let isInList (list: 'a list) v =
-  let lookupTable = new HashSet<'a>(list)
-  printfn "Lokup table created, looking up value"
-  lookupTable.Contains v
+  let calcResult = mult5 (add10 17)
+  let calcResult' = 17 |> add10 |> mult5
+  let m = 2 |> mult
 
-printfn "%b" (isInList ["hi";"there";"oliver"] "there")
-printfn "%b" (isInList ["hi";"there";"oliver"] "anna")
-// das Array wird bei jedem Aufruf generiert --> möchte ich nicht
+  let add10mult5 = add10 >> mult5 // >> composition operator
 
-// deshalb probiere ich eine funktion zu erstellen, bei der ich das Array nicht immer mitgeben muss
-// ist aber auch noch keine Precomputation, da ich nur die Anzahl der Parameter reduziere
-// eine Funktion wird erst ausgeführt wenn alle Parameter übergeben wurden
-let isInListClever = isInList ["hi";"there";"oliver"]
-printfn "%b" (isInListClever "there")
-printfn "%b" (isInListClever "anna")
+  let clacResult'' = add10mult5 17
 
-// Precomputation kann man aber damit erreichen:
-// - es wird eine Funktion zurückgegeben, wo die Umwandlung vom Array in den HashSet bereits passiert ist
-// - wobei der HashSet nur 1x erzeugt werden muss, was vor allem bei aufwendigen Berechnungen wichtig ist
-let constructLookup (list: 'a list) =
-  let lookupTable = new HashSet<'a>(list)
-  printfn "Lookup table created"
-  fun v ->
-    printfn "Performing lookup"
+
+  // Precomputation
+  open System.Collections.Generic
+
+  let isInList (list: 'a list) v =
+    let lookupTable = new HashSet<'a>(list)
+    printfn "Lokup table created, looking up value"
     lookupTable.Contains v
 
-let isInListClever' = constructLookup ["hi";"there";"oliver"]
-printfn "%b" (isInListClever' "there")
-printfn "%b" (isInListClever' "anna")
+  printfn "%b" (isInList ["hi";"there";"oliver"] "there")
+  printfn "%b" (isInList ["hi";"there";"oliver"] "anna")
+  // das Array wird bei jedem Aufruf generiert --> möchte ich nicht
+
+  // deshalb probiere ich eine funktion zu erstellen, bei der ich das Array nicht immer mitgeben muss
+  // ist aber auch noch keine Precomputation, da ich nur die Anzahl der Parameter reduziere
+  // eine Funktion wird erst ausgeführt wenn alle Parameter übergeben wurden
+  let isInListClever = isInList ["hi";"there";"oliver"]
+  printfn "%b" (isInListClever "there")
+  printfn "%b" (isInListClever "anna")
+
+  // Precomputation kann man aber damit erreichen:
+  // - es wird eine Funktion zurückgegeben, wo die Umwandlung vom Array in den HashSet bereits passiert ist
+  // - wobei der HashSet nur 1x erzeugt werden muss, was vor allem bei aufwendigen Berechnungen wichtig ist
+  let constructLookup (list: 'a list) =
+    let lookupTable = new HashSet<'a>(list)
+    printfn "Lookup table created"
+    fun v ->
+      printfn "Performing lookup"
+      lookupTable.Contains v
+
+  let isInListClever' = constructLookup ["hi";"there";"oliver"]
+  printfn "%b" (isInListClever' "there")
+  printfn "%b" (isInListClever' "anna")
+
+  // Recursion
+  let rec fact x =
+    if x = 1 then 1
+    else x * (fact (x - 1))
+
+  printfn "%d" (fact 5)
+
+  let rec fnA() = fnB()
+  and fnB() = fnA() // declared in one block 
+
+  let showValues() =
+    let r = Random()
+    while true do
+      printfn "%d" (r.Next())
+      Thread.Sleep(1000)
+
+  let showValues'() =
+    let r = Random()
+    let rec dl() =
+      printfn "%d" (r.Next())
+      Thread.Sleep(1000)
+      dl()
+    dl()
