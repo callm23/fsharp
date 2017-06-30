@@ -9,6 +9,10 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Calculator.Tests", "Calcula
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SimpleClassesAndEnums", "SimpleClassesAndEnums\SimpleClassesAndEnums.fsproj", "{124AB017-481C-4BAD-909D-811825705244}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GuidSorter", "GuidSorter\GuidSorter.fsproj", "{640F45E1-1663-4B3F-84B4-9BAD93C19FAE}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "HelloWorldWpf", "HelloWorldWpf\HelloWorldWpf.fsproj", "{D6822175-8318-4228-ABE2-46F3672A5728}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{124AB017-481C-4BAD-909D-811825705244}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{124AB017-481C-4BAD-909D-811825705244}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{124AB017-481C-4BAD-909D-811825705244}.Release|Any CPU.Build.0 = Release|Any CPU
+		{640F45E1-1663-4B3F-84B4-9BAD93C19FAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{640F45E1-1663-4B3F-84B4-9BAD93C19FAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{640F45E1-1663-4B3F-84B4-9BAD93C19FAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{640F45E1-1663-4B3F-84B4-9BAD93C19FAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6822175-8318-4228-ABE2-46F3672A5728}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6822175-8318-4228-ABE2-46F3672A5728}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6822175-8318-4228-ABE2-46F3672A5728}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6822175-8318-4228-ABE2-46F3672A5728}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
